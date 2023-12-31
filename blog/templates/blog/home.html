@@ -1,0 +1,19 @@
+{% extends "blog/base.html" %} {% block content %}
+
+<h1>Welcome to Home Page</h1>
+
+{% for post in posts %}
+<div style="background-color: red; margin: 12px; display: flex">
+  <img
+    style="height: 70px; width: auto"
+    src="{{post.author.profile.image.url}}"
+  />
+
+  <h1>
+    <a href="{% url 'post-detail' post.id %}"> {{post.title}} </a>
+  </h1>
+  <p>by {{post.author}} on {{post.date_posted|date:"d/n/Y" }}</p>
+  <p>{{post.content}}</p>
+</div>
+{% endfor %} 
+{% endblock content %}

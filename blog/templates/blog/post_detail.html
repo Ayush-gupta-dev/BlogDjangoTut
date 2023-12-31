@@ -1,0 +1,20 @@
+{% extends "blog/base.html" %}
+
+
+{% block content %}
+
+<h1>Welcome to Detail Page</h1>
+<div style="background-color:red; margin:12px; display:flex;">
+<img style="height:70px; width:auto;" src= "{{object.author.profile.image.url}}"/>
+<h1>{{object.title}}</h1>
+<p>by {{object.author}} on {{object.date_posted|date:"d/n/Y" }}</p>
+<p>{{object.content}}</p>
+{% if object.author == user %}
+<a href="{% url 'post-update' object.id %}"> update </a> 
+<a href="{% url 'post-delete' object.id %}"> Delete </a> 
+{% endif %}
+</div>
+{% endblock content %}
+
+
+

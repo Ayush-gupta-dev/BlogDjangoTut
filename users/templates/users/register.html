@@ -1,0 +1,16 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+
+<form method = "POST">
+{% csrf_token %}
+{% comment %} display passed context i.e form {% endcomment %}
+{{form.as_p}}
+<button type="submit"> SignUp </button>
+</form>
+
+<div>
+    <p> already have an account? </p>
+    <a href="{%url 'login' %}"> signin </a>
+<div>
+{% endblock content %}

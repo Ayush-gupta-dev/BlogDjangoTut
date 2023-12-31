@@ -1,0 +1,17 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+    {% comment %} built in user from django {% endcomment %}
+    <image style="height:150px; width:auto;" src="{{user.profile.image.url}}"/>
+    <h2> {{user.username}}</h2>
+    <p> {{user.email}} </p>
+    <form method = "POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h1>Profile info  </h1>
+        {% comment %} display passed context i.e form {% endcomment %}
+        {{u_form.as_p}}
+        {{p_form.as_p}}
+        <button type="submit"> Update </button>
+        </form>
+
+{% endblock content %}
